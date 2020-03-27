@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Template制作模板</title>
+</head>
+<body>
+    <h1>Tempate制作模板(共四种还有一种是脚手架)</h1>
+    <hr>
+    <div id="app">
+        <div>
+            <template id="dd2">
+                <h2 style="color: red;">我是第二种在标签里建模板使用时候就是调用ID</h2>
+            </template>
+        </div>
+        <script text="x-template" id="dd3">
+            <h2 style="color:green;">我是第三种script标签模板，可以引用src外部的模板,使用时候就是调用ID</h2>
+        </script>
+    </div>
+</body>
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'Hello World!!!!!!'
+        },
+       
+        // template:`
+        //     <h2 style="color:blue">第一种我是构造器制作的模板使用时候就是在这输入</h2>
+        // `
+        // template:"#dd2"
+        template:"#dd3"
+    })
+</script>
+</html>

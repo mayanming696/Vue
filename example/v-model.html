@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>v-model 实例</title>
+</head>
+<body>
+    <h1>v-model 实例</h1>
+    <hr>
+    <div id="app">
+        <h3>v-model绑定数据源</h3>
+        <p>原始文本数据{{message}}</p>
+        <p><input type="text" v-model="message"></p>
+        <hr>
+        <h3>v-model 3种修饰符</h3>
+        <p>lazy延迟加载:<input type="text" v-model.lazy="message"></p>
+        <p>number加载(只取数字):<input type="text" v-model.number="message"></p>
+        <p>trim加载(去除首尾空格):<input type="text" v-model.trim="message"></p>
+        <hr>
+        <h3>本文域</h3>
+        <textarea  cols="30" rows="10" v-model="message"></textarea>
+        <hr>
+        <h3>多选框绑定一个值</h3>
+        <input type="checkbox" id="isTrue" v-model="isTrue" value="Marco">
+        <label for="isTrue">{{isTrue}}</label>
+        <hr>
+        <h3>多选框绑定数组</h3>
+        <input type="checkbox" id="Marco" value="Marco" v-model="web_names">
+        <label for="Marco">Marco</label><br/>
+        <input type="checkbox" id="June" value="June" v-model="web_names">
+        <label for="June">June</label><br/>
+        <input type="checkbox" id="panpan" value="panpan" v-model="web_names">
+        <label for="panpan">panpan</label><br/>
+        <p>{{web_names}}</p>
+        <hr>
+        <h3>单选框绑定数据</h3>
+        <input type="radio" id="one" value="男" v-model="sex">
+        <label for="one">Marco</label><br/>
+        <input type="radio" id="two" value="女" v-model="sex">
+        <label for="two">June</label><br/>
+        <p>我选择了我的性别是:{{sex}}</p>
+        <hr>
+    </div>
+</body>
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'Hello World!',
+            isTrue:true,
+            web_names:[],
+            sex:"男"
+        }
+    })
+</script>
+</html>

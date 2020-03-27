@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Component 组件</title>
+</head>
+<body>
+    <h1>Component 组件 初步认识</h1>
+    <hr>
+    <div id="app">
+        <div>{{message}}</div>
+
+        <marco></marco>
+        <june></june>
+    </div>
+    <div id="ppa">
+        <div>{{message}}</div>
+
+        <marco></marco>
+    </div>
+
+    <!-- <marco>即使全局组件也要再定义的范围才有效果</marco> -->
+</body>
+<script type="text/javascript">
+    Vue.component("marco",{
+        template:`
+            <h2 style="color:red;">我是全局定义的组件，只能有一个</h2>
+        `
+    })
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'Hello World!!!!!!'
+        },
+        components:{
+            june:{
+                template:`
+                <h2 style="color:green">我是局部定义的组件可以多个</h2>
+                `
+            }
+        }
+    })
+    var app=new Vue({
+        el:'#ppa',
+        data:{
+            message:'Hello World!!!!!!'
+        }
+    })
+</script>
+</html>

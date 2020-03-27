@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Components 父子组件关系</title>
+</head>
+<body>
+    <h1>Components 父子组件关系</h1>
+    <hr>
+    <div id="app">
+        <father></father>
+    </div>
+</body>
+<script type="text/javascript">
+    var son = {
+        template:`<div>我是儿子组件</div>`
+    }
+    var father = {
+        template:`<div>
+                <p>我是父组件</p>
+                <son></son>
+        </div>`,
+        components:{
+            "son":son
+        }
+    }
+    var app=new Vue({
+        el:'#app',
+        components:{
+            "father":father
+        }
+    })
+</script>
+</html>

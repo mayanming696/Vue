@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>propsData</title>
+</head>
+<body>
+    <h1>propsData</h1>
+    <hr>
+    <div id="app">
+        <header></header>
+    </div>
+</body>
+<script type="text/javascript">
+    var headerA=Vue.extend({
+        template:`<h2>{{message}}-{{here}}</h2>`,
+        data:function(){
+            return {
+                message:"我来自广东"
+            }
+        },
+        props:['here']
+
+    })
+    new headerA({propsData:{here:"惠州"}}).$mount('header');
+    var app=new Vue({
+        el:'#app',
+    })
+</script>
+</html>

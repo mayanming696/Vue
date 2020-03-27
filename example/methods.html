@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Hello World</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <button @click="add(2)">构造器里面添加的方法</button>
+        <p><btn @click.native="add(3)"></btn></p>
+    </div>
+    <p><button onclick="app.add(4)">构造器ID外部</button></p>
+</body>
+<script type="text/javascript">
+    var btn = {
+        template:`<button>组件里面添加的方法</button>`
+    }
+    var app=new Vue({
+        el:'#app',
+        data:{
+            num:1
+        },
+        methods:{
+            add:function(num){
+                if(this.num!=""){
+                    this.num+=num
+                }else{
+                    this.num++
+                }
+            }
+        },
+        components:{
+            btn:btn
+        },
+    })
+</script>
+</html>

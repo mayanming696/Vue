@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Vue.extend构造器的延伸只能一个</title>
+</head>
+<body>
+    <h1>Vue.extend构造器的延伸</h1>
+    <hr>
+    <div id="marcogg">这个是ID绑定哦</div>
+    <MarcoName></MarcoName>
+</body>
+<script type="text/javascript">
+  var marcoExtend = Vue.extend({
+      template:"<p><a :href='marcoUrl'>{{name}}<a></p>",
+      data:function(){
+          return{
+              name:'Marco Blog',
+              marcoUrl:'http://mayanming696.com'
+          }
+      }
+  })
+  new marcoExtend().$mount('MarcoName')
+  new marcoExtend().$mount('#marcogg')
+
+</script>
+</html>

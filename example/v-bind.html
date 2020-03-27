@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>v-bind 绑定标签属性</title>
+</head>
+<body>
+    <h1>v-bind 绑定标签属性</h1>
+    <hr>
+    <div id="app">
+        <img v-bind:src="imgSrc" width="200px">
+        <p><a :href="webUrl" target="_black">Marco</a></p>
+        <div v-bind:class="className">1、绑定classA</div>
+        <br>
+        <div :class="{classB:isOk}">2、绑定class中的判断</div>
+        <div>
+            <input type="checkbox" id="isOk" v-model="isOk">
+            <label for="isOk"> isOk 的值{{isOk}} </label>
+        </div>
+        <br>
+        <div :class="[classA,classC]">3、绑定class中的数组</div>
+        <br>
+        <div :class="istrue?classA:classB">4、三元一次绑定class中的属性</div>
+        <div> <input type="checkbox" id="istrue" v-model="istrue"></div>
+        <label for="istrue"> istrue 的值{{istrue}} </label>
+        <br>
+        <div :style="{color:red,fontSize:font}">5、绑定style</div>
+        <br>
+        <div :style="styleObject">6、用对象绑定style样式</div>
+    </div>
+
+</body>
+
+<style>
+.classA{color: red;}
+.classB{color: royalblue;}
+.classC{font-size: 150%;}
+</style>
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            imgSrc:"https://www.baidu.com/img/bd_logo1.png",
+            webUrl:"https://mayanming696.com/",
+            className:"classA",
+            isOk:true,
+            istrue:true,
+            classA:"classA",
+            classC:"classC",
+            classB:"classB",
+            red:"red",
+            font:"100px",
+            styleObject:{
+                fontSize:'24px',
+                color:'green'
+            }
+        }
+    })
+</script>
+</html>

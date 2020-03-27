@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>mixins 混入选项</title>
+</head>
+<body>
+    <h1>mixins 混入选项</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <p><button @click="add">add</button></p>
+    </div>
+</body>
+<script type="text/javascript">
+    var addConsole = {
+        updated:function(){
+            console.log("数据发生变化:"+this.num)
+        }
+    }
+    var app=new Vue({
+        el:'#app',
+        data:{
+            num:1
+        },
+        methods:{
+            add:function(){
+                this.num++
+            }
+        },
+        updated:function(){
+        console.log("构造器里的updated方法。")
+        },
+        mixins:[addConsole]
+    })
+</script>
+</html>

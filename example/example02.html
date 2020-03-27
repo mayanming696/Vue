@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>$mount 挂载</title>
+</head>
+<body>
+    <h1>$mount方法是用来挂载我们的扩展的</h1>
+    <hr>
+    <div id="app"></div>
+    <p><button onclick="destroy()">卸载</button></p>
+    <p><button onclick="reload()">刷新</button></p>
+</body>
+<script type="text/javascript">
+    var marco =  Vue.extend({
+        template:`<p>{{messages}}</p>`,
+        data:function(){
+            return {
+                messages:"Hello,i am marco"
+            }
+        },
+        mounted:function(){
+            console.log("mounted,被创建")
+        },
+        destroyed:function(){
+            console.log("destroy已经卸载")
+        },
+        updated:function(){
+            console.log("更新之后")
+        }
+    })
+    var vm = new marco().$mount('#app');
+    function destroy(){
+        vm.$destroy();
+    };
+    function reload(){
+        vm.$forceUpdate();
+    };
+
+    var app=new Vue({
+        el:'#app',
+    })
+</script>
+</html>
